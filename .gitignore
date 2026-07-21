@@ -140,8 +140,3 @@ vite.config.ts.timestamp-*
 
 # development files
 bots
-
-# config
-config.js
-shared/config.js
-server/src/moomoo/config.js
