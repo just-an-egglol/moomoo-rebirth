@@ -313,7 +313,7 @@ export class ServerBrowser {
   private pingUrl(server: ServerEntry): string {
     if (server.httpUrl) return `${server.httpUrl}/ping`;
     let host = this.address(server);
-    if (server.port) host += `:${server.port}`;
+    //if (server.port) host += `:${server.port}`;
     const scheme = String(server.region) === "0" ? location.protocol.replace(":", "") : "https";
     return `${scheme}://${host}/ping`;
   }
