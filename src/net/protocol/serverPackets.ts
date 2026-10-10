@@ -1,0 +1,50 @@
+export const ServerPacket = {
+  SetInitData: "A",
+  Disconnect: "B",
+  SetupGame: "C",
+  AddPlayer: "D",
+  RemovePlayer: "E",
+  UpdatePlayers: "a",
+  UpdateLeaderboard: "G",
+  LoadGameObject: "H",
+  LoadAI: "I",
+  AnimateAI: "J",
+  GatherAnimation: "K",
+  WiggleGameObject: "L",
+  ShootTurret: "M",
+  UpdatePlayerValue: "N",
+  UpdateHealth: "O",
+  KillPlayer: "P",
+  KillObject: "Q",
+  KillObjects: "R",
+  UpdateItemCounts: "S",
+  UpdateAge: "T",
+  UpdateUpgrades: "U",
+  UpdateItems: "V",
+  AddProjectile: "X",
+  RemoveProjectile: "Y",
+  ServerShutdownNotice: "Z",
+  AddAlliance: "g",
+  DeleteAlliance: "1",
+  AllianceNotification: "2",
+  SetPlayerTeam: "3",
+  SetAlliancePlayers: "4",
+  UpdateStoreItems: "5",
+  ReceiveChat: "6",
+  UpdateMinimap: "7",
+  ShowText: "8",
+  PingMap: "9",
+  PingSocketResponse: "0",
+  BossTelegraph: "W",
+  PlayerStats: "F",
+  PlayerProfile: "p"
+} as const;
+
+export type ServerPacketType = (typeof ServerPacket)[keyof typeof ServerPacket];
+
+// dont change this order, this is the specific order that the cipher table is built with, if you change it then the cipher used will not match what the game expects
+export const SERVER_CODES = [
+  "A", "B", "C", "D", "E", "a", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+  "Q", "R", "S", "T", "U", "V", "X", "Y", "Z", "g", "1", "2", "3", "4", "5", "6",
+  "7", "8", "9", "0", "W", "F", "p"
+];
