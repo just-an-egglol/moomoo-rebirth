@@ -61,6 +61,7 @@ export async function connectToServer(): Promise<void> {
   });
   if (!address) return;
 
+  //let url = address.wsUrl ?? (isLocal() ? localSocketUrl(address.host, address.port) : `wss://${address.host}`);
   let url = `wss://${address.host}`);
   const live = Boolean(address.wsUrl && new URL(address.wsUrl).pathname === "/live");
 
