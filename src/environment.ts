@@ -108,6 +108,12 @@ export function leaderboardsEnabled(): boolean {
 }
 
 export function apiBase(): string {
+  if (
+    typeof location !== "undefined" &&
+    location.hostname.endsWith(".onrender.com")
+  ) {
+    return location.origin;
+  }
   if (isLocal()) return location.origin;
 
   const flavour = siteFlavour();
