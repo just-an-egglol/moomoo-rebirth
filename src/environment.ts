@@ -58,8 +58,9 @@ export function isDev(): boolean {
 }
 
 export function isLocal(): boolean {
-  const host = hostname();
-  return LOCAL_HOSTS.includes(host) || host.startsWith("192.168.");
+  return true;
+  /*const host = hostname();
+  return LOCAL_HOSTS.includes(host) || host.startsWith("192.168.");*/
 }
 
 export function isApiLocal(): boolean {
