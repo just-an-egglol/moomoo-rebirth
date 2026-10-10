@@ -61,8 +61,7 @@ export async function connectToServer(): Promise<void> {
   });
   if (!address) return;
 
-  //let url = address.wsUrl ?? (isLocal() ? localSocketUrl(address.host, address.port) : `wss://${address.host}`);
-  let url = `wss://${address.host}`;
+  let url = address.wsUrl ?? (location.hostname.endsWith(".onrender.com") ? `wss://${address.host}` : isLocal() ? localSocketUrl(address.host, address.port) : `wss://${address.host}`);
   const live = Boolean(address.wsUrl && new URL(address.wsUrl).pathname === "/live");
 
   if (live && !(await loadLiveProtocol(new URL(url).searchParams.get("environment") ?? "prod"))) {
